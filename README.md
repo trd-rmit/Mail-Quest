@@ -1,74 +1,105 @@
 # Mail-Quest
 
-Mail-Quest is a full-stack web application that provides a secure and efficient email management system with Google OAuth authentication. The application allows users to manage their surveys and track survey responses sent via email.
-This project was created to test the integration of the Google OAuth, Stripe API and SendGrid API (additionally atlas MongoDB).
+> **A full-stack web application for secure and efficient email survey management with Google OAuth authentication.**
 
-## Tech Stack
+Mail-Quest enables users to manage surveys and track responses via email. This project showcases the integration of **Google OAuth, Stripe API, SendGrid API, and MongoDB Atlas**.
 
-### Frontend
-- React.js
-- Redux
-- Redux Form
-- Material-UI
-- Axios
-- React Router
-- React Stripe Checkout
-- lodash
+---
 
-### Backend
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-- Passport.js (Google OAuth, Cookie Session)
-- SendGrid API
-- Stripe API
-- lodash
+## 🚀 Tech Stack
 
-## Prerequisites
+### **Frontend**  
+- ⚛️ **React.js**  
+- 🗂 **Redux & Redux Form**  
+- 🎨 **Material-UI**  
+- 🔗 **Axios & React Router**  
+- 💳 **React Stripe Checkout**  
+- 🔢 **lodash**
 
-Before running the application, ensure you have:
-- Node.js (v20 or higher)
-- MongoDB installed locally or a MongoDB Atlas account
-- Google Cloud Platform account
-- SendGrid account
-- Stripe account
+### **Backend**  
+- 🛠 **Node.js & Express.js**  
+- 🗄 **MongoDB & Mongoose**  
+- 🔐 **Passport.js (Google OAuth & Cookie Session)**  
+- ✉️ **SendGrid API**  
+- 💰 **Stripe API**  
+- 🔢 **lodash**
 
-## Required API Keys
+---
 
-Create `.env` file in the root directory and `.env.development` in the client directory with the following variables:
+## ⚙️ Prerequisites
 
-### Server (.env)
+Before running the application, ensure you have the following installed:
 
-NODE_GOOGLE_CLIENT_ID=your_google_client_id (oauth credentials)
-NODE_GOOGLE_CLIENT_SECRET=your_google_client_secret (oauth credentials)
-NODE_MONGODB_URL=your_mongodb_url (local or atlas)
-NODE_COOKIE_SECRET=your_random_text_for_cookie_session (used for cookies encryption)
-NODE_STRIPE_SECRET_KEY=your_stripe_secret_key (stripe credentials)
-NODE_SENDGRID_API_KEY=your_sendgrid_secret_api_key (sendgrid credentials)
+- 📌 **Node.js (v20 or higher)**
+- 📌 **MongoDB (Local or Atlas Account)**
+- 📌 **Google Cloud Platform Account**
+- 📌 **SendGrid Account**
+- 📌 **Stripe Account**
 
-### Client (.env.development)
+---
 
-REACT_APP_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key (stripe credentials)
+## 🔑 Required API Keys
 
-## Installation
+Create the following environment variable files:
 
-1. Clone the repository:
+### **Server (`.env`)**
+```ini
+NODE_GOOGLE_CLIENT_ID=your_google_client_id
+NODE_GOOGLE_CLIENT_SECRET=your_google_client_secret
+NODE_MONGODB_URL=your_mongodb_url
+NODE_COOKIE_SECRET=your_random_text_for_cookie_session
+NODE_STRIPE_SECRET_KEY=your_stripe_secret_key
+NODE_SENDGRID_API_KEY=your_sendgrid_secret_api_key
+```
 
+### **Client (`.env.development`)**
+```ini
+REACT_APP_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+```
+
+---
+
+## 📦 Installation
+
+### **1️⃣ Clone the Repository**
+```sh
 git clone https://github.com/trd-rmit/Mail-Quest.git
 cd Mail-Quest
+```
 
-2. Install dependencies for both server and client:
-
-npm i # Install server dependencies
+### **2️⃣ Install Dependencies**
+#### **For Server**
+```sh
+npm i
+```
+#### **For Client**
+```sh
 cd client
-npm i # Install client dependencies (add --legacy-peer-deps if you encounter peer dependency issues)
+npm i # Use --legacy-peer-deps if needed
 cd ..
+```
 
-3. Start the development server:
+### **3️⃣ Start the Development Server**
+```sh
+npm run dev  # Starts both client and server using concurrently
+```
 
-npm run dev       # Starts both client and server using concurrently
+---
 
-The application will be available at:
-- Frontend: http://localhost:3000
-- Backend: http://localhost:5000
+## 🌍 URLs
+
+- **Frontend:** [http://localhost:3000](http://localhost:3000)  
+- **Backend:** [http://localhost:5000](http://localhost:5000)  
+
+---
+
+## 🎯 Features
+
+✅ **Google OAuth Authentication**  
+✅ **Stripe Payments Integration**  
+✅ **SendGrid Email Service**  
+✅ **Survey Response Tracking**  
+✅ **MongoDB for Data Storage**  
+✅ **React & Redux for UI State Management**  
+
+Happy Coding! 🚀
