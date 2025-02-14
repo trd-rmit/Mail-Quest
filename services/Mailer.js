@@ -1,0 +1,53 @@
+const sendgrid = require('sendgrid')
+const helper = sendgrid.mail
+const NODE_SENDGRID_API_KEY = process.env.NODE_SENDGRID_API_KEY
+
+class Mailer extends helper.Mail {
+    constructor({ subject, recipients }, content) {
+        super()
+
+        this.sgApi = sendgrid(NODE_SENDGRID_API_KEY)
+        this.from_email = new helper.Email('trdeshmukh.2011@gmail.com')
+        this.subject = subject
+        this.recipients = this.formatAddresses(recipients)
+        
+        this.addContent(new helper.Content('text/html', content))
+        this.addClickTracking()
+        this.addRecipients()
+    }
+
+    formatAddresses(recipients) {
+        return recipients.map(({email}) => {
+            return new helper.Email(email)
+        })
+    }
+
+    addClickTracking() {
+        const trackingSetting = new helper.TrackingSettings()
+        const clickTracking = new helper.ClickTracking(true, true)
+
+        trackingSetting.setClickTracking(clickTracking)
+        this.addTrackingSettings(trackingSetting)
+    }
+
+    addRecipients() {
+        const personalize = new helper.Personalization()
+        this.recipients.forEach(recipient => {
+            personalize.addTo(recipient)
+        })
+        this.addPersonalization(personalize)
+    }
+
+    async send() {
+        const request = this.sgApi.emptyRequest({
+            method: 'POST',
+            path: '/v3/mail/send',
+            body: this.toJSON()
+        })
+
+        const response = await this.sgApi.API(request)
+        return response
+    }
+}
+
+module.exports = Mailer
